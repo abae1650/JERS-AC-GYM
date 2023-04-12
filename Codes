@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JERS AC GYM / Exercise Equipment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body{
+            background-image: url('gymjers/bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat; 
+            height:100vh;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+            color:white;
+            font-size: 1rem;
+            font-family: Verdana,Tahoma, sans-serif;
+            font-weight: bolder;
+           
+            
+        } 
+
+        a:hover{
+
+            color:orange;
+
+        }
+
+        header{
+
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .navbar{
+
+            width: 100%;
+            height: 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute ;
+            top: 45px;
+            left:100px;
+        }
+
+        .navbar .logo  a{
+
+            font-size: 1.5rem;
+            font-weight: bold;
+            
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 1rem;
+            
+        }
+
+        .navbar .toggle_btn{
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+       
+
+        .act_btn {
+            background-color: orange;
+            color:white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition:scale 0.2 ease;
+
+        }
+
+        .act_btn:hover {
+            scale: 1.05;
+            color: white;
+        }
+        .act_btn:active {
+
+            scale:0.95;
+        }
+            /*Dropdown Menu*/
+        .dropdown_menu{
+
+            position:absolute;
+            right: 2rem;
+            top:30%;
+            width: 300px;
+            height: 0;
+            background:rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .dropdown_menu.open{
+            height: 240px;
+        }
+
+        .dropdown_menu li{
+            padding: 8.2%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .dropdown_menu .act_btn{
+
+            width: 90%;
+            display:flex;
+            justify-content: center;
+
+        }
+         
+        /* Text*/
+        .text{
+             position: absolute;
+             top:280px;
+             color: white;
+             left: 70px;
+             text-align: center;
+             font-family: Verdana, Geneva, Tahoma, sans-serif ;
+             font-size: 14px;
+
+        }
+
+        .text2{
+            position: absolute;
+             top:880px;
+             color: white;
+             text-align: center;
+             font-family: Verdana;
+             font-size: 22px;
+             font-weight: bold;
+             background-color: black;
+             width: 1349px;
+
+        }
+
+        .text3{
+             position: absolute;
+             top:1980px;
+             color: white;
+             text-align: center;
+             font-family: Verdana;
+             font-size: 22px;
+             font-weight: bold;
+             background-color: black;
+             width: 1349px;
+            
+        }
+        .text4{
+            position: absolute;
+             top:2050px;
+             color: black;
+             text-align: center;
+             font-family: Verdana;
+             font-size: 16px;
+             width: 850px;
+             border-style: solid;
+             border-radius: 12px;
+             left: 450px;
+             border-style: groove;
+             border-color: black;
+
+
+        }
+
+        .text5{
+             position: absolute;
+             top:2400px;
+             color: white;
+             text-align: center;
+             font-family: Verdana;
+             font-size: 22px;
+             font-weight: bold;
+             background-color: black;
+             width: 1349px;
+        }
+
+
+
+
+        /* Images*/
+
+        .img1 {
+            position: absolute;
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 300px;
+            color:black;
+            background-color: white;
+            font-family: Verdana,Tahoma, sans-serif;
+            top:580px;
+            left:100px;
+        }
+        .img1 {
+            padding: 15px;
+            text-align: center;
+        }
+        .img1:hover {
+            border: 2px solid rgb(0, 0, 0);
+            }
+
+             /* Images*/
+        .img2 {
+            position: absolute;
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 300px;
+            color:black;
+            background-color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            top:580px;
+            left: 520px;
+        }
+        .img2 {
+            padding: 15px;
+            text-align: center;
+        }
+        .img2:hover {
+            border: 2px solid rgb(0, 0, 0);
+            }
+
+            .img3 {
+            position: absolute;
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 300px;
+            color:black;
+            background-color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            top:580px;
+            left: 950px;
+        }
+        .img3 {
+            padding: 15px;
+            text-align: center;
+        }
+        .img3:hover {
+            border: 2px solid rgb(0, 0, 0);
+            }
+
+
+        .img4{
+
+            position: absolute;
+            top:960px;
+            left:30px;
+            align-items: center;
+        }
+
+        .img4 {
+            padding: 15px;
+            text-align: center;
+
+        }
+        .img5{
+            position: absolute;
+            top:2030px;
+            left:50px;
+            align-items: center;
+            
+
+
+
+        }
+
+            /*Buttons  */
+            .btn{
+            background-color:orange; 
+            border: none;
+            color: white;
+            padding: 26px 50px;
+            border-radius: 3rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            position: absolute;
+            top: 400px;
+            left:200px;
+            font-family: verdana;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .btn:hover{
+            scale: 1.1;
+            color: white;
+
+
+        }
+
+        .btn2{
+            background-color:orange; 
+            border: none;
+            color: white;
+            padding: 26px 25px;
+            border-radius: 1rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            position: absolute;
+            top: 2500px;
+            left:240px;
+            font-family: verdana;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .btn2:hover{
+            scale: 1.1;
+            color: white;
+
+
+        }
+
+        .btn3{
+            background-color:orange; 
+            border: none;
+            color: white;
+            padding: 26px 110px;
+            border-radius: 1rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            position: absolute;
+            top: 2500px;
+            left:750px;
+            font-family: verdana;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .btn3:hover{
+            scale: 1.1;
+            color: white;
+
+
+        }
+
+        .btn4{
+            background-color:orange; 
+            border: none;
+            color: white;
+            padding: 26px 35px;
+            border-radius: 1rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            position: absolute;
+            top: 2620px;
+            left:750px;
+            font-family: verdana;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .btn4:hover{
+            scale: 1.1;
+            color: white;
+
+
+        }
+        .btn5{
+            background-color:orange; 
+            border: none;
+            color: white;
+            padding: 26px 70px;
+            border-radius: 1rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            position: absolute;
+            top: 2620px;
+            left:240px;
+            font-family: verdana;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .btn5:hover{
+            scale: 1.1;
+            color: white;
+
+
+        }
+
+
+
+
+
+        @media(max-width: 992px)
+{
+        .navbar .links,
+        .navbar .act_btn{
+            display:none;
+        }
+        .navbar .toggle_btn {
+
+        display: block;
+        }
+
+        .dropdown_menu {
+            display: block;
+        }
+
+}
+    @media(max-width: 576px)
+    {
+        .dropdown_menu{
+            left: 2rem;
+            width: unset;
+        }
+
+
+    }
+
+
+    </style>
+  </head>
+
+  
+  <body>
+      <header>
+    <div class= "navbar">
+    <div class ="logo"><a href="#">
+       JeRS GYM</a></div>
+    <ul class="links">
+        <li><a href="Products">Products</a></li>
+        <li><a href="Services">About Us</a></li>
+        <li><a href="About Us">Contact Us</a></li>
+    </ul>
+
+    <a href="#" class="act_btn">Sign Up </a>
+    <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+    </div>
+    <div class="dropdown_menu">
+        <li><a href="Products">Products</a></li>
+        <li><a href="Services">About Us</a></li>
+        <li><a href="About Us">Contact Us</a></li>
+        <a href="#" class="act_btn">Sign Up</a>
+    </div>
+</header>
+
+        <div class="text">
+            <h1>JERS AC Gym / Exercise Equipment</h1><br>
+            <p>We are selling different kinds of Gym Equipment,<br> from dumbbells up to heavy-duty machines.</p>
+        </div>
+
+        <div class="img1"><img src="gymjers/src2.jpg" alt="bike" width="200" height="200">
+            <div class="txt1">
+                Spinning Bike<br>
+            </div>
+        </div>
+
+        <div class="img2"><img src="gymjers/src3.jpg" alt="bike" width="200" height="200">
+            <div class="txt2">
+          Treadmill<br>
+         </div>
+        </div>
+        <div class="img3"><img src="gymjers/src4.jpg" alt="bike" width="200" height="200">
+            <div class="txt3">
+               LEG CURL MACHINE<br>
+         </div></div>
+
+         <div class="img4">
+             <img src="gymjers/src1.jpg" alt="bike" width="1280" height="970">
+            </div>
+        <div class="img5">
+                <img src="gymjers/gym.jpg" alt="bike" width="350" height="350">
+               </div>
+   
+
+         <div class="btn"><h3>Shop Now</h3></div>
+         <div class="text2">Products</div>
+         <div class="text3">About Us</div>
+         <div class="text4"><p>
+             JeRS AC Gym Equipment is a company specializing in the sales of gym and exercise equipment.<br> The company was founded in August 2014 and is located in the Gyy Building, Kristong Hari, Tomas Morato, Quezon City, Philippines.<br>
+             At JeRS AC Gym Equipment, our mission is to provide top-quality gym and exercise equipment to help our clients achieve their fitness goals. Our knowledgeable and friendly staff is always available to assist with product selection and answer any questions.
+             We offer a wide range of gym equipment, from free weights and weightlifting machines to cardio equipment and accessories.<br> Our products are sourced from leading manufacturers and are carefully selected based on their quality, durability, and performance.<br>
+             At JeRS AC Gym Equipment, we believe in providing a complete fitness experience for our clients.<br> That's why we offer a range of services, including equipment installation, maintenance, and repair.<br> Whether you're a seasoned fitness enthusiast or just starting out, our team is here to help you get the most out of your workout.<br>
+             Thank you for considering JeRS AC Gym Equipment for all your fitness needs. We look forward to serving you!
+            
+            </p></div>
+
+        <div class="text5">Contact Us</div>
+        <div class="btn2"><i class="fa-regular fa-envelope"> Email Us<br>jersacofficial@gmail.com</i></div>
+        <div class="btn3"><i class="fa-regular fa-phone"> Call Us<br>0905 999 0399</i></div>
+        <div class="btn4"><i class="fa-regular fa-eye"> Visit Us<br>jersacgymequipment.ph</i></div>
+        <div class="btn5"><i class="fa-brands fa-instagram"> Instagram<br>jersacgymequipment</i></div>
+
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropdownMenu = document.querySelector('.dropdown_menu')
+        
+        toggleBtn.onclick = function (){
+            dropdownMenu.classList.toggle('open')
+            const isOpen = dropdownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars'
+
+        }
+    </script>
+  </body>
+
+</html>
